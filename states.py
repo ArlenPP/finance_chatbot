@@ -35,7 +35,7 @@ chatbot_states_config = {
         },
         {
             'trigger': 'go_init',
-            'source': ['init', 'future_date', 'strategy_date'],
+            'source': ['future_date', 'strategy_date'],
             'dest': 'init',
         },
         {
