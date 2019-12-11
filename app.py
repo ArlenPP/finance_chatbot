@@ -6,6 +6,7 @@ import os
 from collections import namedtuple
 from datetime import datetime
 from utils import send_message
+from app_config import app_config
 #------FSM------#
 from fsm import TocMachine
 from states import chatbot_states_config
@@ -62,5 +63,5 @@ def basic_url():
     return 'OK'
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=9900, debug=True, 
+    app.run(host='0.0.0.0', port=app_config['port'], debug=True, 
             ssl_context=('./ssl/certificate.pem', './ssl/private.key'))

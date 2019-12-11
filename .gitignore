@@ -5,3 +5,4 @@ temp
 db/db_config.py
 taifex
 strategy
+app_config.py
