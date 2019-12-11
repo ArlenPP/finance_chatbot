@@ -1,0 +1,5 @@
+.vscode
+__pycache__
+ssl
+temp
+db/db_config.py
