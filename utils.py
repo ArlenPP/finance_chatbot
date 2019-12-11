@@ -20,7 +20,7 @@ def send_message(event, msg):
     return "OK"
 
 def check_date_format(text):
-    filtter = r'[\d]{4}(.)([1-9]|0[1-9]|1[0-2])(.)([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])'
+    filtter = r'[\d]{4}([/|-])(0[1-9]|1[0-2]|[1-9])([/|-])(0[1-9]|1[0-9]|2[0-9]|3[0-1]|[1-9])'
     match = re.search(filtter, text)
     if not match:
         return False, None
@@ -28,6 +28,9 @@ def check_date_format(text):
         return True, match.group()
 
 def querl_sql(start_date, end_date, isDay=True):
+    if(type(start_date) != str):
+        start_date = start_date.strftime(f'%Y/%m/%d')
+        end_date = end_date.strftime(f'%Y/%m/%d')
     return db.read_data(start_date, end_date, isDay)
 
 def upload_img():
@@ -59,3 +62,10 @@ def plot_kbar(data, plot=True, path=None, isday=False):
         plt.savefig(path)
         plt.close()
     return fig
+
+def plot_roi(data, plot=True, path=None):
+    fig = plt.figure(figsize=(13,10))
+    ax = fig.add_subplot(1, 1, 1)
+    data.plot(kind='line',x='Date',y='ROI', color='red', ax=ax)
+    plt.savefig(path)
+    plt.close()
