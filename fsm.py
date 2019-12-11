@@ -22,7 +22,12 @@ class TocMachine(Machine):
         self.id = id
     
     def on_enter_init(self, event):
-        content = "在初始狀態"
+        content = '基本功能：'
+        content += '\n1.請先選擇你想知道的訊息，如果想知道台指期走勢請輸入期貨或future，如果想知道期貨機器人的交易表現請輸入策略或strategy\n'
+        content += '\nVIP功能：'
+        content += '\n1.每天晚上8點推播告知使用者明天期貨機器人的預測結果'
+        content += '\n2.每天自動化爬蟲會到期交所爬近30日內的期貨tick資料，成功完成後會告知使用者'
+        content += '\n3.監測自動化交易程式，當停損停利或建倉成功時以及有任何異常交易都會發訊息告知使用者'
         send_message(event, TextSendMessage(text=content))
     
     def is_go_to_future(self, event):
