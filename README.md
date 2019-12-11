@@ -12,12 +12,15 @@
 4.監測自動化交易程式，當停損停利或建倉成功時以及有任何異常交易都會發訊息告知使用者
 
 ## Prerequisite
-Python 3.6
-Line開發者帳號
-HTTPS Server
+1. Python 3.6
+2. Line開發者帳號
+3. HTTPS Server
 
 ## Usage
-1. 申請SSL
+1. 
+```
+申請SSL
+```
 2.  
 ```
 $ pip install -r requirement.txt
@@ -26,4 +29,7 @@ $ pip install -r requirement.txt
 ```
 python app.py
 ```
-4. 設定Line webhook
+4. 
+```
+設定Line webhook
+```
