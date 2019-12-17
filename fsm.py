@@ -153,6 +153,7 @@ class TocMachine(Machine):
         num = user_strategy_num[event.source.user_id]
         df = pd.read_pickle(f'./strategy/strategy_{num}.pkl')
         df = df[(df.Date>=start) & (df.Date<=end)]
+        df['ROI'] -= df['ROI'][0]
         if df.empty:
             content = '查無資料請重新輸入'
             send_message(event, TextSendMessage(text=content))

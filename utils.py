@@ -66,6 +66,6 @@ def plot_kbar(data, plot=True, path=None, isday=False):
 def plot_roi(data, plot=True, path=None):
     fig = plt.figure(figsize=(13,10))
     ax = fig.add_subplot(1, 1, 1)
-    data.plot(kind='line',x='Date',y='ROI', color='red', ax=ax)
+    data.plot(kind='line',x='Date', y='ROI', rot=75, color='red', ax=ax)
     plt.savefig(path)
     plt.close()
